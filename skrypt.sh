@@ -1,13 +1,13 @@
 showmenu(){
 echo -e "----------MENU---------"
 echo "1. Program pierwszy: dwumian Newtona"
-echo "2. Program drugi"
+echo "2. Program drugi: Podzial na czynniki pierwsze"
 echo "3. Program trzeci"
 echo "4. Program czwarty"
 echo "5. Wyjscie"
 echo "-----------------------"
 }
-
+#10
 newt(){
 a=1
 b=1
@@ -24,6 +24,28 @@ done
 wynik=$(($a/$(($b*$c))));
 echo $wynik;
 }
+#27
+
+czynn(){
+dzielnik=2
+i=0
+cz=()
+
+for ((k=0; $dzielnik<$(($1+1)); k++)) do
+#while [$dzielnik<$n+1] ; do
+	if [$(($1%$dzielnik)) -eq 0] ;
+	then
+	cz[k]=$dzielnik
+#	k=$((k+1))
+	$1=$(($1/dzielnik))
+		elif [$dzielnik<$1] ; then
+		dzielnik=$((dzielnik+1))
+		k=$((k-1))
+	fi	
+done
+echo $wynik
+}
+
 
 while true
 do
@@ -47,11 +69,21 @@ echo "wynik Newton($n,$k): $wynik"
 ;;
 
 "2")
-echo "Tu bedzie drugi program"
+echo "Podzial liczby naturalnej na czynniki "
+echo "Podaj liczbe naturalna wieksza niz 1: "
+read n
+echo -e "\n Czynniki pierwsze liczby"
+wynik=$(czynn $n)
+for (( i=0; i<k; i++ ))
+do
+wynik=$(czynn $n)
+echo "${cz[k]} : $wynik"
+done
 ;;
 
 "3")
-echo "Tu bedzie trzeci program"
+echo "3 program"
+
 ;;
 
 "4")
