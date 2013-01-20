@@ -63,6 +63,8 @@ done
 echo $suma
 }
 
+
+
 while true
 do
 echo -e "\n"
@@ -80,6 +82,14 @@ read n
 echo "Podaj k"
 read k
 echo -e "\n"
+while [ $n -lt $k ] ; do
+echo "Podaj n, ktore jest rowne, badz wieksze od k"
+echo "Podaj n"
+read n
+echo "Podaj k"
+read k
+echo -e "\n"
+done
 wynik=$(newt $n $k)
 echo "wynik Newton($n,$k): $wynik"
 ;;
