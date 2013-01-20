@@ -32,16 +32,16 @@ i=0
 cz=()
 
 #for ((k=0; $dzielnik<$(($1+1)); k++)) do
-while [ $dzielnik -le $1 ] ; do
-	if [ $((1%dzielnik)) -eq 0 ] ;
+while [ $dzielnik -le $n ] ; do
+	if [ $((n%dzielnik)) -eq 0 ] ;
 	then
 	cz[k]=$dzielnik
 	k=$((k+1))
-	$1=$1/dzielnik
-		elif [ $dzielnik -lt $1 ] ; then
+	n=$((n/dzielnik))
+		elif [ $dzielnik -lt $n ] ; then
 		dzielnik=$((dzielnik+1))
 	#	k=$((k-1))
-	fi	
+	fi
 done
 echo ${cz[k]}
 }
@@ -73,11 +73,9 @@ echo "Podzial liczby naturalnej na czynniki "
 echo "Podaj liczbe naturalna wieksza niz 1: "
 read n
 echo -e "\n Czynniki pierwsze liczby"
-cz[k]=$(czynn $n)
-for (( i=0; i<k; i++ ))
-do
-cz[k]=$(czynn $n)
-echo ${cz[k]} 
+cz[k]=$(czynn $n) #76 linia
+for ((i=0;i<5;i++)) do
+echo ": ${cz[i]}"
 done
 ;;
 
@@ -99,3 +97,4 @@ echo "Prosze wybrac poprwany numer programu"
 ;;
 esac
 done
+
