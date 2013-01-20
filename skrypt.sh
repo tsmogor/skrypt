@@ -38,7 +38,7 @@ for ((k=0; $dzielnik<$(($1+1)); k++)) do
 	cz[k]=$dzielnik
 #	k=$((k+1))
 	$1=$(($1/dzielnik))
-		elif [$dzielnik<$1] ; then  # < tutaj masz źle: "elif"
+		elif [$dzielnik<$1] ; then
 		dzielnik=$((dzielnik+1))
 		k=$((k-1))
 	fi	
