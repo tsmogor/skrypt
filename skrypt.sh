@@ -2,7 +2,7 @@ showmenu(){
 echo -e "----------MENU---------"
 echo "1. Program pierwszy: dwumian Newtona"
 echo "2. Program drugi: Podzial na czynniki pierwsze"
-echo "3. Program trzeci"
+echo "3. Program trzeci: Iloczyn skalarny dwóch tablic"
 echo "4. Program czwarty"
 echo "5. Wyjscie"
 echo "-----------------------"
@@ -38,7 +38,7 @@ for ((k=0; $dzielnik<$(($1+1)); k++)) do
 	cz[k]=$dzielnik
 #	k=$((k+1))
 	$1=$(($1/dzielnik))
-		elif [$dzielnik<$1] ; then
+		elif [$dzielnik<$1] ; then  # < tutaj masz źle: "elif"
 		dzielnik=$((dzielnik+1))
 		k=$((k-1))
 	fi	
@@ -46,6 +46,20 @@ done
 echo $wynik
 }
 
+iloczyn(){
+suma=0
+tab=()
+for ((i=0;$i<$1;i++)) ; do
+read tab[i]
+done
+i=0
+while (($i<$1)) ; do
+read liczba
+suma=$(($suma+$(($((tab[i]))*$liczba))))
+i=$(($i+1))
+done
+echo $suma
+}
 
 while true
 do
@@ -82,10 +96,15 @@ done
 ;;
 
 "3")
-echo "3 program"
-
-;;
-
+echo "Iloczyn skalarny dwóch tablic"
+echo "Ile liczb w tablicach?"
+read n
+echo "Podaj elementy tych tablic"
+wynik=$(iloczyn $n)
+echo "Wynik iloczynu skalarnego wynosi: $wynik"  #jakbyś może wiedział, jak
+;;         #przesłać tablicę jako parametr, to fajnie by było, gdybyś napisał
+           #przykład gdzieś w komentarzu czy coś. Program działa, ale mógłby się
+           #lepiej wyświetlać
 "4")
 echo "Tu bedzie czwarty program"
 ;;
