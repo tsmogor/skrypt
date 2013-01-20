@@ -43,7 +43,9 @@ while [ $dzielnik -le $n ] ; do
 	#	k=$((k-1))
 	fi
 done
+for ((;k>=0;k--)) do
 echo ${cz[k]}
+done
 }
 
 iloczyn(){
@@ -88,9 +90,9 @@ echo "Podaj liczbe naturalna wieksza niz 1: "
 read n
 echo -e "\n Czynniki pierwsze liczby"
 cz[k]=$(czynn $n) #76 linia
-for ((i=0;i<5;i++)) do
-echo ": ${cz[i]}"
-done
+#for ((i=0;i<k;i++)) do
+echo ${cz[k]}
+#done
 ;;
 
 "3")
