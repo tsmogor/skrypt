@@ -43,7 +43,10 @@ while [ $dzielnik -le $n ] ; do
 	#	k=$((k-1))
 	fi
 done
-echo ${cz[k]}
+for (( ;$k>=0;k--)) ; do
+echo $((cz[k]))
+done
+#echo ${cz[k]}
 }
 
 iloczyn(){
@@ -87,10 +90,11 @@ echo "Podzial liczby naturalnej na czynniki "
 echo "Podaj liczbe naturalna wieksza niz 1: "
 read n
 echo -e "\n Czynniki pierwsze liczby"
-cz[k]=$(czynn $n) #76 linia
-for ((i=0;i<5;i++)) do
-echo ": ${cz[i]}"
-done
+cz=$(czynn $n) #76 linia
+echo "$cz"
+#for ((i=0;i<5;i++)) do
+#echo ": ${cz[i]}"
+#done
 ;;
 
 "3")
