@@ -31,19 +31,19 @@ dzielnik=2
 i=0
 cz=()
 
-for ((k=0; $dzielnik<$(($1+1)); k++)) do
-#while [$dzielnik<$n+1] ; do
-	if [$(($1%$dzielnik)) -eq 0] ;
+#for ((k=0; $dzielnik<$(($1+1)); k++)) do
+while [ $dzielnik -le $1 ] ; do
+	if [ $((1%dzielnik)) -eq 0 ] ;
 	then
 	cz[k]=$dzielnik
-#	k=$((k+1))
-	$1=$(($1/dzielnik))
-		elif [$dzielnik<$1] ; then
+	k=$((k+1))
+	$1=$1/dzielnik
+		elif [ $dzielnik -lt $1 ] ; then
 		dzielnik=$((dzielnik+1))
-		k=$((k-1))
+	#	k=$((k-1))
 	fi	
 done
-echo $wynik
+echo ${cz[k]}
 }
 
 iloczyn(){
@@ -87,11 +87,11 @@ echo "Podzial liczby naturalnej na czynniki "
 echo "Podaj liczbe naturalna wieksza niz 1: "
 read n
 echo -e "\n Czynniki pierwsze liczby"
-wynik=$(czynn $n)
+cz[k]=$(czynn $n)
 for (( i=0; i<k; i++ ))
 do
-wynik=$(czynn $n)
-echo "${cz[k]} : $wynik"
+cz[k]=$(czynn $n)
+echo ${cz[k]} 
 done
 ;;
 
