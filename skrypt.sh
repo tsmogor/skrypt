@@ -88,6 +88,10 @@ echo "wynik Newton($n,$k): $wynik"
 echo "Podzial liczby naturalnej na czynniki "
 echo "Podaj liczbe naturalna wieksza niz 1: "
 read n
+while [ $n -le 1 ] ; do
+echo "Podales zla liczbe. Podaj liczbe naturalna WIEKSZA niz 1: "
+read n
+done
 echo -e "\nCzynniki pierwsze liczby: "
 cz[k]=$(czynn $n) #76 linia
 echo ${cz[k]}
