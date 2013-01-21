@@ -4,7 +4,7 @@ echo -e "\033[1;30m 1. Program pierwszy: dwumian Newtona"
 echo -e " 2. Program drugi: Podzial na czynniki pierwsze"
 echo -e " 3. Program trzeci: Iloczyn skalarny dwoch tablic"
 echo -e " 4. Program czwarty: Ciag Fibonacciego"
-echo -e " 5. Program piaty: \033[0m"
+echo -e " 5. Program piaty: Szybkie potęgowanie\033[0m"
 echo -e "\033[0;31m 6. WYJSCIE\033[0m"
 echo -e "\033[1;32m--------------------------------------------------\033[0m"
 }
@@ -93,6 +93,28 @@ i=0
 
 }
 
+pot(){
+a=$1
+n=$2
+if [ $(($n%2)) -eq 0 ] ; then
+    suma=$a
+    z=1
+else
+    suma=1
+    z=0
+fi
+while [ $n -ne $z ] ; do
+    if [ $(($n%2)) -eq 0 ] ; then
+	suma=$(($suma*$suma))
+	n=$(($n/2))
+    else
+	suma=$(($suma*$a))
+	n=$(($n-1))
+    fi
+done
+echo $suma
+}
+
 while true
 do
 echo -e "\n"
@@ -151,7 +173,20 @@ fib $n
 ;;
 
 "5")
-echo "Tu bedzie program piaty"
+echo "Podaj a"
+read a
+echo "Podaj liczbę naturalną n"
+read n
+while [ $n -lt 0 ] ; do
+echo "Podałeś złą liczbę. Podaj liczbę naturalną n"
+read n
+done
+if [ $n -eq 0 ] ; then
+echo "Wynik $a^$n = 1"
+else
+    pot=$(pot $a $n)
+    echo "Wynik: $a^$n = $pot"
+fi
 ;;
 
 "6")
