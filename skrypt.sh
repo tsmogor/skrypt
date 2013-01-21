@@ -1,12 +1,12 @@
 showmenu(){
-echo -e "----------MENU---------"
-echo "1. Program pierwszy: dwumian Newtona"
-echo "2. Program drugi: Podzial na czynniki pierwsze"
-echo "3. Program trzeci: Iloczyn skalarny dwoch tablic"
-echo "4. Program czwarty: Ciag Fibonacciego"
-echo "5. Program piaty: "
-echo "6. Wyjscie"
-echo "-----------------------"
+echo -e "\033[1;32m----------------------MENU------------------------\033[0m"
+echo -e "\033[1;30m 1. Program pierwszy: dwumian Newtona"
+echo -e " 2. Program drugi: Podzial na czynniki pierwsze"
+echo -e " 3. Program trzeci: Iloczyn skalarny dwoch tablic"
+echo -e " 4. Program czwarty: Ciag Fibonacciego"
+echo -e " 5. Program piaty: \033[0m"
+echo -e "\033[0;31m 6. WYJSCIE\033[0m"
+echo -e "\033[1;32m--------------------------------------------------\033[0m"
 }
 #10
 newt(){
@@ -98,28 +98,28 @@ do
 echo -e "\n"
 showmenu
 echo -e "\n"
-echo "Wybierz program:"
+echo -e "\033[1;34mWybierz program:\033[0m\033[1;33m"
 read choice
-echo -e "\n"
+echo -e "\n\033[0m"
 case "$choice" in
 
 "1")
-echo "Newton(n,k) = n!/(n-k)!k!"
-echo "Podaj n"
+echo -e "\033[1;34mNewton(n,k) = n!/(n-k)!k!"
+echo -e "Podaj n\033[1;33m"
 read n
-echo "Podaj k"
+echo -e "\033[0m\033[1;34mPodaj k\033[0m\033[1;33m"
 read k
 echo -e "\n"
 while [ $n -lt $k ] ; do
-echo "Podaj n, ktore jest rowne, badz wieksze od k"
-echo "Podaj n"
+echo -e "\033[1;34;4mPodaj n, ktore jest rowne, badz wieksze od k !\n\033[24m"
+echo -e "Podaj n\033[0m\033[1;33m"
 read n
-echo "Podaj k"
+echo -e "\033[1;34mPodaj k\033[1;33m"
 read k
 echo -e "\n"
 done
 wynik=$(newt $n $k)
-echo "wynik Newton($n,$k): $wynik"
+echo -e "\033[1;34mWynik Newton($n,$k): \033[0;32m$wynik"
 ;;
 
 "2")
@@ -155,11 +155,11 @@ echo "Tu bedzie program piaty"
 ;;
 
 "6")
-echo -e "Zamkniecie programu\n"
+echo -e "\033[0;31;4mZamkniecie programu\n\n\033[0m"
 exit 0
 ;;
 *)
-echo "Prosze wybrac poprwany numer programu"
+echo -e "\033[1;34;4mProsze wybrac poprawny numer programu !\033[0m"
 ;;
 esac
 done
