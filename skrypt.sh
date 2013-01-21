@@ -4,7 +4,7 @@ echo -e "\033[1;30m 1. Program pierwszy: dwumian Newtona"
 echo -e " 2. Program drugi: Podzial na czynniki pierwsze"
 echo -e " 3. Program trzeci: Iloczyn skalarny dwoch tablic"
 echo -e " 4. Program czwarty: Ciag Fibonacciego"
-echo -e " 5. Program piaty: Szybkie potęgowanie\033[0m"
+echo -e " 5. Program piaty: Szybkie potegowanie\033[0m"
 echo -e "\033[0;31m 6. WYJSCIE\033[0m"
 echo -e "\033[1;32m--------------------------------------------------\033[0m"
 }
@@ -59,11 +59,11 @@ done
 for ((i=0;$i<$1;i++)) ; do
     read tab2[i]
 done
-echo "Elementy pierwszej tablicy:"
+echo -e "\n\033[1;34mElementy pierwszej tablicy :\033[0m\033[0;32m"
 for ((i=0;$i<$1;i++)) ; do
     echo -n "$((tab1[i])) "
 done
-echo -e "\nElementy drugiej tablicy:"
+echo -e "\n\033[0m\033[1;34mElementy drugiej tablicy :\033[0m\033[0;32m"
 for ((i=0;$i<$1;i++)) ; do
     echo -n "$((tab2[i])) "
 done
@@ -73,7 +73,7 @@ while (($i<$1)) ; do
     suma=$(($suma+$(($((tab1[i]))*$((tab2[i]))))))
     i=$(($i+1))
 done
-echo "Wynik iloczynu skalarnego tych tablic wynosi: $suma"
+echo -e "\033[0m\033[1;34mWynik iloczynu skalarnego tych tablic wynosi: \033[0m\033[0;32m$suma\033[0m"
 }
 
 
@@ -84,7 +84,7 @@ i=0
 
 	while [ $i -le $n ] ;
 	do
-	  echo "Ciag Fibonacciego o dlugosci $i wynosi : $a"
+	  echo -e "\033[1;34mCiag Fibonacciego o dlugosci $i wynosi : \033[0m\033[0;32m$a\033[0m"
 	  sum=$((a+b))
 	  a=$b
 	  b=$sum
@@ -154,38 +154,39 @@ read n
 done
 echo -e "\n\\033[0m\033[1;34mCzynniki pierwsze liczby: \033[0m"
 cz[k]=$(czynn $n) #76 linia
-echo -e "\033[0;32m${cz[k]}\033[0m"
+echo -e "\033[0;32m" ${cz[k]}
+echo -e "\033[0m"
 ;;
 
 "3")
-echo "Iloczyn skalarny dwoch talbic"
-echo "Ile liczb w tablicach?"
+echo -e "\033[1;34mIloczyn skalarny dwoch talbic"
+echo -e "Ile liczb w tablicach ?\033[0m\033[1;33m"
 read n
-echo "Podaj elementy tych tablic"
+echo -e "\033[0m\033[1;34mPodaj elementy tych tablic\033[0m\033[1;33m"
 wynik=$(iloczyn $n)
-echo "$wynik"
+echo -e "\033[0m\033[0;32m$wynik\033[0m"
 ;;         
 "4")
-echo "Podaj dlugosc ciagu Fibonacciego"
+echo -e "\033[01;34mPodaj dlugosc ciagu Fibonacciego\033[0m\033[1;33m"
 read n
-echo -e "\n"
+echo -e "\n\033[0m"
 fib $n
 ;;
 
 "5")
-echo "Podaj a"
+echo -e "\033[1;34mPodaj a\033[0m\033[1;33m"
 read a
-echo "Podaj liczbę naturalną n"
+echo -e "\033[0m\033[1;34mPodaj liczbe naturalna n\033[0m\033[1;33m"
 read n
 while [ $n -lt 0 ] ; do
-echo "Podałeś złą liczbę. Podaj liczbę naturalną n"
+echo -e "\033[0m\033[1;34;4mPodales zla liczbe. Podaj liczbe naturalna n !\033[0m\033[1;33m"
 read n
 done
 if [ $n -eq 0 ] ; then
-echo "Wynik $a^$n = 1"
+echo -e "\033[0m\033[1;34mWynik $a^$n = \033[0m\033[0;32m1\033[0m"
 else
     pot=$(pot $a $n)
-    echo "Wynik: $a^$n = $pot"
+    echo -e "\033[0m\033[1;34mWynik: $a^$n = \033[0m\033[0;32m$pot\033[0m"
 fi
 ;;
 
