@@ -123,20 +123,20 @@ echo -e "\033[1;34mWynik Newton($n,$k): \033[0;32m$wynik"
 ;;
 
 "2")
-echo "Podzial liczby naturalnej na czynniki "
-echo "Podaj liczbe naturalna wieksza niz 1: "
+echo -e "\033[1;34mPodzial liczby naturalnej na czynniki "
+echo -e "Podaj liczbe naturalna wieksza niz 1: \033[0m\033[1;33m"
 read n
 while [ $n -le 1 ] ; do
-echo "Podales zla liczbe. Podaj liczbe naturalna WIEKSZA niz 1: "
+echo -e "\033[0m\033[1;34;4mPodales zla liczbe. Podaj liczbe naturalna WIEKSZA niz 1: \033[0m\033[1;33m"
 read n
 done
-echo -e "\nCzynniki pierwsze liczby: "
+echo -e "\n\\033[0m\033[1;34mCzynniki pierwsze liczby: \033[0m"
 cz[k]=$(czynn $n) #76 linia
-echo ${cz[k]}
+echo -e "\033[0;32m${cz[k]}\033[0m"
 ;;
 
 "3")
-echo "Iloczyn skalarny dwóch tablic"
+echo "Iloczyn skalarny dwoch talbic"
 echo "Ile liczb w tablicach?"
 read n
 echo "Podaj elementy tych tablic"
