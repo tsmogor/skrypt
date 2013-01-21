@@ -50,20 +50,30 @@ done
 
 iloczyn(){
 suma=0
-tab=()
+tab1=()
+tab2=()
 for ((i=0;$i<$1;i++)) ; do
-read tab[i]
+    read tab1[i]
 done
+for ((i=0;$i<$1;i++)) ; do
+    read tab2[i]
+done
+echo "Elementy pierwszej tablicy:"
+for ((i=0;$i<$1;i++)) ; do
+    echo -n "$((tab1[i])) "
+done
+echo -e "\nElementy drugiej tablicy:"
+for ((i=0;$i<$1;i++)) ; do
+    echo -n "$((tab2[i])) "
+done
+echo -e "\n"
 i=0
 while (($i<$1)) ; do
-read liczba
-suma=$(($suma+$(($((tab[i]))*$liczba))))
-i=$(($i+1))
+    suma=$(($suma+$(($((tab1[i]))*$((tab2[i]))))))
+    i=$(($i+1))
 done
-echo $suma
+echo "Wynik iloczynu skalarnego tych tablic wynosi: $suma"
 }
-
-
 
 while true
 do
@@ -113,12 +123,10 @@ echo "Ile liczb w tablicach?"
 read n
 echo "Podaj elementy tych tablic"
 wynik=$(iloczyn $n)
-echo "Wynik iloczynu skalarnego wynosi: $wynik"  #jakbyś może wiedział, jak
-;;         #przesłać tablicę jako parametr, to fajnie by było, gdybyś napisał
-           #przykład gdzieś w komentarzu czy coś. Program działa, ale mógłby się
-           #lepiej wyświetlać
+echo "$wynik"
+;;         
 "4")
-echo "Tu bedzie czwarty program"
+
 ;;
 
 "5")
