@@ -2,9 +2,10 @@ showmenu(){
 echo -e "----------MENU---------"
 echo "1. Program pierwszy: dwumian Newtona"
 echo "2. Program drugi: Podzial na czynniki pierwsze"
-echo "3. Program trzeci: Iloczyn skalarny dwóch tablic"
-echo "4. Program czwarty"
-echo "5. Wyjscie"
+echo "3. Program trzeci: Iloczyn skalarny dwoch tablic"
+echo "4. Program czwarty: Ciag Fibonacciego"
+echo "5. Program piaty: "
+echo "6. Wyjscie"
 echo "-----------------------"
 }
 #10
@@ -64,6 +65,23 @@ echo $suma
 }
 
 
+function fib {
+a=0
+b=1
+i=0
+
+	while [ $i -le $n ] ;
+	do
+	  echo "Ciag Fibonacciego o dlugosci $i wynosi : $a"
+	  sum=$((a+b))
+	  a=$b
+	  b=$sum
+	  i=$((i+1))
+	done
+
+}
+
+
 
 while true
 do
@@ -118,10 +136,17 @@ echo "Wynik iloczynu skalarnego wynosi: $wynik"  #jakbyś może wiedział, jak
            #przykład gdzieś w komentarzu czy coś. Program działa, ale mógłby się
            #lepiej wyświetlać
 "4")
-echo "Tu bedzie czwarty program"
+echo "Podaj dlugosc ciagu Fibonacciego"
+read n
+echo -e "\n"
+fib $n
 ;;
 
 "5")
+echo "Tu bedzie program piaty"
+;;
+
+"6")
 echo -e "Zamkniecie programu\n"
 exit 0
 ;;
